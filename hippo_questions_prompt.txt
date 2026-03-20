@@ -1,0 +1,18 @@
+You are given a clinical case report and a biomedical research abstract. Your task is to analyze them **together** and identify what **new clinical or biological questions become answerable only when considering both texts jointly**.
+
+Instructions:
+
+1. Carefully read the **case report** and the **abstract**.
+2. Determine whether the given abstract is meaningfully related to that case report. If they are not related, say “No meaningful joint question could be found.”
+3. If meaningfully related, formulate questions that **cannot be answered by the case report alone** and **cannot be answered by the abstract alone**, but **can only be answered when both the case report and abstract are considered together**. 
+4. The questions should be **specific to the patient’s details**, and not generic biomedical questions. Do not claim causality unless explicitly stated in the abstract.
+
+5. For each question:
+
+   * Write the **question**.
+   * Provide a **short explanation** of how the **case report provides the clinical context** and how the **abstract provides the missing biological or medical explanation**. 
+   *For this question and explanation, list the information you retrieved directly from 
+- the case report
+- the abstract
+
+6. Focus on **mechanisms, disease interpretation, diagnostic reasoning, or clinical implications**.
