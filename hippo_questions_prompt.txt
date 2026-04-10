@@ -1,20 +1,49 @@
-TOOD: question more general aka "a patient" not "this patient", no reference to abstract. add couple of examples
+You are given a clinical case report and a biomedical research abstract.
 
-You are given a clinical case report and a biomedical research abstract. 
-Your task is to analyze them **together** and identify what **new clinical or biological questions become answerable only when considering both texts jointly**.
+Your task is to analyze them together and identify what new clinical or biological questions become answerable only when considering both texts jointly.
 
-CASE REPORT: {patient_text}
-RESEARCH ABSTRACT (Title: {article_title}): {article_text}
+CASE REPORT:
+{patient_text}
+
+RESEARCH ABSTRACT (Title: {title}):
+{article_text}
 
 Instructions:
 
-1. Determine whether the given abstract is meaningfully related to that case report. If they are not related, say “No meaningful joint question could be found.”
-2. If meaningfully related, formulate 5 candidate questions that **cannot be answered by the case report alone** and **cannot be answered by the abstract alone**, but **can only be answered when both the case report and abstract are considered together**.
-   Each question must:
-	- be self-contained (understandable without referring back to the texts)
-	- focus on **mechanisms, disease interpretation, diagnostic reasoning, or clinical implications**
-	- avoid vague phrasing
-3. Evaluate the 5 questions and select the single strongest question based on depth of integration between case and abstract.
-4. For this selected best question, provide:
-	- Write the **question**.
-	- Provide a **short explanation** of how the **case report provides the clinical context** and how the **abstract provides the missing biological or medical explanation**. Do not claim causality unless explicitly stated in the abstract.
+1. Determine whether the abstract is meaningfully related to the case report.
+If not related, output exactly:
+No meaningful joint question could be found.
+
+2. If meaningfully related, formulate 5 candidate questions that:
+- cannot be answered by the case report alone
+- cannot be answered by the abstract alone
+- require integrating information from both texts
+
+Each question must:
+- be self-contained
+- be phrased generically (e.g., “a patient” instead of “this patient”)
+- apply to a class of patients with similar characteristics
+- focus on mechanisms, disease interpretation, diagnostic reasoning, or clinical implications
+- connect at least two specific clinical features from the case report
+- avoid vague phrasing
+
+Do not refer to “this patient” or “the patient”.
+
+3. Evaluate the 5 questions and select the single strongest question based on depth of integration between the texts.
+
+The selected question should:
+- require integrating clinical observations with biomedical knowledge
+- involve mechanism-level reasoning or treatment implications
+- not be answerable using general textbook knowledge alone
+
+4. Output:
+
+Question:
+<the selected question>
+
+Explanation:
+Explain:
+- what clinical information motivates the question
+- what biomedical knowledge enables answering it
+
+Do not refer to “the abstract” in the explanation.
